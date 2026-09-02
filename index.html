@@ -207,12 +207,6 @@
       </div>
 
       <div class="cat-card">
-        <svg class="cat-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 6 C10 10 8 15 12 20 C13 22 15 22 16 20 C17 22 19 22 20 20 C24 15 22 10 16 6Z"/></svg>
-        <h3>THC &amp; Cannabis</h3>
-        <div class="items">THC-A vapes, pre-rolls, flower, concentrates, gummies, mushroom gummies</div>
-      </div>
-
-      <div class="cat-card">
         <svg class="cat-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="9" y="12" width="14" height="14" rx="2"/><path d="M9 12 L23 12 M12 12 V9 H20 V12"/><path d="M16 16 C13 17 13 21 16 22 C19 21 19 17 16 16Z"/></svg>
         <h3>Kratom</h3>
         <div class="items">Kratom powder, capsules, and extract shots</div>
@@ -490,13 +484,9 @@
     document.querySelector('.gate-buttons').style.display = 'none';
     document.getElementById('age-deny').style.display = 'block';
   });
-
-  // Mobile nav
   var toggle = document.getElementById('nav-toggle');
   var links = document.getElementById('nav-links');
-  toggle.addEventListener('click', function(){
-    links.classList.toggle('open');
-  });
+  toggle.addEventListener('click', function(){ links.classList.toggle('open'); });
   links.querySelectorAll('a').forEach(function(a){
     a.addEventListener('click', function(){ links.classList.remove('open'); });
   });
