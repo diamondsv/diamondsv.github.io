@@ -381,7 +381,7 @@
       <h2>Questions, restocks, or bulk orders</h2>
     </div>
     <div class="contact-wrap">
-      <form id="contact-form" action="mailto:diamondsmokeandvapeshop@gmail.com" method="post" enctype="text/plain">
+       <form id="contact-form" action="https://formspree.io/f/mjyvevel" method="POST">
         <div class="field">
           <label for="c-name">Name</label>
           <input type="text" id="c-name" name="name" required>
@@ -393,16 +393,18 @@
         <div class="field">
           <label for="c-location">Which location?</label>
           <select id="c-location" name="location">
-            <option value="diamondsmokeandvapeshop@gmail.com">Beavercreek</option>
-            <option value="diamondsmokeandvapeshop2@gmail.com">Vandalia / Dayton</option>
+            <option value="Beavercreek">Beavercreek</option>
+             <option value="Vandalia / Dayton">Vandalia / Dayton</option>
           </select>
         </div>
         <div class="field">
           <label for="c-msg">Message</label>
           <textarea id="c-msg" name="message" required></textarea>
         </div>
-        <button type="submit" class="btn btn-primary">Send Message</button>
-        <p class="contact-note">This opens your email client addressed to the location you picked above.</p>
+        <input type="hidden" name="_subject" value="New message from the Diamond Smoke &amp; Vape website">
+        <input type="text" name="_gotcha" style="display:none">
+         <button type="submit" class="btn btn-primary">Send Message</button>
+         <p class="contact-note" id="contact-note">We'll get back to you by email.</p>
       </form>
 
       <div class="contact-side">
@@ -491,12 +493,7 @@
     a.addEventListener('click', function(){ links.classList.remove('open'); });
   });
 
-  // Contact form: route mailto target based on selected location
-  var locationSelect = document.getElementById('c-location');
-  var contactForm = document.getElementById('contact-form');
-  locationSelect.addEventListener('change', function(){
-    contactForm.setAttribute('action', 'mailto:' + locationSelect.value);
-  });
+  /* Contact form: submit to Formspree without leaving the page */ var contactForm = document.getElementById('contact-form'); var contactNote = document.getElementById('contact-note'); contactForm.addEventListener('submit', function(e){ e.preventDefault(); var data = new FormData(contactForm); contactNote.textContent = 'Sending...'; fetch(contactForm.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } }).then(function(response){ if (response.ok) { contactForm.reset(); contactNote.textContent = "Thanks, your message is on its way. We'll get back to you by email."; } else { contactNote.textContent = 'Something went wrong sending that. Please try again, or call/DM us directly.'; } }).catch(function(){ contactNote.textContent = 'Something went wrong sending that. Please try again, or call/DM us directly.'; }); });
 </script>
 
 
