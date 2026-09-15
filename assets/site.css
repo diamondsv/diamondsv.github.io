@@ -349,6 +349,7 @@ body::before{
   mix-blend-mode:overlay;
 }
 header, .hero, section, footer{ position:relative; z-index:1; }
+header{ z-index:100; }
 
 header::after{ content:''; position:absolute; left:0; right:0; bottom:-1px; height:1px; background:linear-gradient(90deg, transparent, rgba(232,232,237,0.55), transparent); }
 
