@@ -128,7 +128,7 @@
   .nav-cta:hover{border-color:var(--silver-bright); color:var(--silver-bright);}
   .nav-toggle{display:none; background:none; border:none; color:var(--text); font-size:1.4rem; cursor:pointer;}
   @media (max-width:900px){
-    .nav-links{position:fixed; top:60px; left:0; right:0; background:var(--bg-raised); flex-direction:column; gap:0; border-bottom:1px solid var(--line); display:none;}
+    .nav-links{position:fixed; top:60px; left:0; right:0; z-index:100; background:var(--bg-raised); flex-direction:column; gap:0; border-bottom:1px solid var(--line); display:none;}
     .nav-links.open{display:flex;}
     .nav-links a, .nav-links .nav-cta{padding:16px 24px; width:100%; border-bottom:1px solid var(--line); text-align:left; border-radius:0;}
     .nav-toggle{display:block;}
